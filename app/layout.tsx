@@ -7,8 +7,8 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="de">
-      <body className="min-h-dvh">
+    <html lang="de" className="h-full overflow-hidden">
+      <body className="h-dvh overflow-hidden bg-[#0b0b0b] text-white grid grid-rows-[auto,1fr]">
         <header className="border-b border-neutral-800 bg-black text-neutral-100">
           <div className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -18,7 +18,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <div className="text-[12px] text-neutral-400">Monochrom · Kantig · No Blue</div>
           </div>
         </header>
-        <main className="mx-auto max-w-6xl px-4 py-6">{children}</main>
+
+        <main className="grid place-items-center overflow-hidden">
+          <div className="w-full max-w-6xl px-4">
+            {children}
+          </div>
+        </main>
       </body>
     </html>
   );
