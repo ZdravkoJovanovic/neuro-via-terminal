@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+/* ===== Base (Tailwind bleibt Standard) ===== */
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+
+body {
+  @apply bg-neutral-950 text-neutral-100 antialiased;
+  font-feature-settings: "ss01","ss02","cv01","cv02";
+  letter-spacing: 0.1px;
+}
+
+/* Fokus ohne Blau */
+:where(button, input, textarea, select) { outline: none; }
+:where(button, input, textarea, select):focus-visible { @apply ring-1 ring-neutral-300; }
+
+/* Kantige Controls */
+.btn, .input, .chip { border-radius: 0 !important; }
+
+/* Links monochrom */
+a { color: inherit; text-decoration: underline; text-decoration-color: #3a3a3a; }
+a:hover { text-decoration-color: #666; }
+
+/* Tabelle (falls irgendwo genutzt) */
+table { table-layout: auto; border-collapse: collapse; }
+thead { background: #0f0f0f; position: sticky; top: 0; z-index: 10; }
+td, th {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  vertical-align: top;
+  line-height: 1.25;
+  padding: 8px 12px;
+}
+th { @apply text-neutral-300 font-semibold; }
+.table-grid td, .table-grid th { @apply border-b border-neutral-800; }
+tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+
+/* Platzhalter & Auswahl */
+::placeholder { color: #6b7280; }
+::selection { background: #222; color: #fff; }
+
+/* Dezent: Scrollbar */
+*::-webkit-scrollbar { width: 10px; height: 10px; }
+*::-webkit-scrollbar-thumb { background: #2a2a2a; }
+*::-webkit-scrollbar-track { background: #0a0a0a; }
